@@ -1,0 +1,62 @@
+package ru.otus.java;
+
+import java.util.Scanner;
+
+public class Homework {
+    public static void main(String[] args) {
+    
+        // Переменные для хранения количества правильных и неправильных ответов
+        int correctCount = 0, wrongCount = 0;
+
+        //Массив вопросов 
+        String[] questions = new String[3];
+        questions[0] = "File of what type java file is being compiled?";
+        questions[1] = "What command should be used for receiving a full copy of repository?";
+        questions[2] = "What cycle is being used when one do not know number of iterations?";
+
+        //Массив вариантов ответов
+        String[][] answerOptions = new String[3][4];
+        answerOptions[0][0] = "1.cs";
+        answerOptions[0][1] = "2.java";
+        answerOptions[0][2] = "3.class";
+        answerOptions[0][3] = "4.exe";
+        answerOptions[1][0] = "1.commit";
+        answerOptions[1][1] = "2.push";
+        answerOptions[1][2] = "3.clone";
+        answerOptions[1][3] = "4.copy";
+        answerOptions[2][0] = "1.while";
+        answerOptions[2][1] = "2.for";
+        answerOptions[2][2] = "3.loop";
+
+        //Массив правильных ответов
+        int[] correctAnswers = new int[3];
+        correctAnswers[0] = 3;
+        correctAnswers[1] = 3;
+        correctAnswers[2] = 1;
+
+        Scanner input = new Scanner(System.in);
+        //Цикл по всем вопросам
+        for (int i = 0; i < 3; i++) {
+            System.out.println(questions[i]);
+            for (int j = 0; j < 3; j++) {
+                System.out.println(answerOptions[i][j]);
+            }
+            System.out.println("Ваш ответ: ");
+			
+            // Считываем с консоли ответ пользователя
+            int answer = input.nextInt();
+			
+            // Проверяем ответ и выводим результат
+            // а также увеличиваем счетчики правильных и неправильных ответов
+            if (answer == correctAnswers [i]) {
+                 System.out.println("Верно");
+                correctCount++;
+            }else{
+                System.out.println("Неверно");
+                wrongCount++;
+            }
+        }
+        //Выводим общий результат
+        System.out.println("Результат: правильно " + correctCount + ", неправильно " + wrongCount);
+    }
+}
