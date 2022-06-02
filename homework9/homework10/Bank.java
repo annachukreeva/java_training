@@ -1,31 +1,46 @@
 package homework.homework9.homework10;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 
 public class Bank {
     public static void main(String[] args) {
-       Account client1 = new Client (112233, "Name1", 25);
-       Account client2 = new Client (112244, "Name2", 25);
-       Account client3 = new Client (112255, "Name3", 25);
-
-Map<Integer, Client> map = new HashMap<> ();
-map.put(client1.getAccount(), (Client) client1);
-map.put(client2.getAccount(), (Client) client2);
-map.put(client3.getAccount(), (Client) client3);
-
-System.out.println(map.entrySet());
+        Set<Account> accounts1 = new HashSet<>();
+        Set<Account> accounts2 = new HashSet<>();
+        Set<Account> accounts3 = new HashSet<>();
+        Set<Account> accounts4 = new HashSet<>();
 
 
-        //client2.setId(5);
-        //client2.setId(5);
+        Client client1 = new Client("Name1", 25);
+        Client client2 = new Client("Name2", 25);
+        Client client3 = new Client("Name3", 25);
+        Client client4 = new Client("Name3", 25);
 
-       // System.out.println(client2.getId());
-       //System.out.println(client2);
+        Account account1 = new Account(1, client1);
+        Account account2 = new Account(2, client2);
+        Account account3 = new Account(3, client3);
+        Account account4 = new Account(4, client3);
 
-        /*Map<Integer, Client> map = new HashMap<>();
-        map.put(ivanov.get(id), ivanov);
-        map.put(petrov,get(id), petrov);
-        System.out.println(map.values());*/
-            }
+        accounts1.add(account1);
+        accounts2.add(account2);
+        accounts3.add(account3);
+        accounts4.add(account4);
+
+        client1.setAccounts(accounts1);
+        client2.setAccounts(accounts2);
+        client3.setAccounts(accounts3);
+
+
+        Set<Client> client = new HashSet<>();
+        client.add(client1);
+        client.add(client2);
+        client.add(client3);
+
+        Optional<Client> first = client.stream().filter(client5 -> client4.equals(client5)).findFirst();
+        first.isPresent();
+        Client client5 = first.get();
+
+
+        System.out.println(client5.getAccounts());
+        System.out.println(account3.getClient());
+    }
 }

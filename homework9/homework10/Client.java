@@ -1,17 +1,18 @@
 package homework.homework9.homework10;
 
 import java.util.Objects;
+import java.util.Set;
 
-public class Client extends Account {
+public class Client {
     private String name;
     private int age;
+    private Set<Account> accounts;
 
-    public Client(int account) {
-        super(account);
+    public Set<Account> getAccounts() {
+        return accounts;
     }
 
-    public Client (int account, String name, int age) {
-        super(account);
+    public Client(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -22,6 +23,10 @@ public class Client extends Account {
 
     public int getAge() {
         return age;
+    }
+
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
     }
 
     @Override
@@ -40,9 +45,9 @@ public class Client extends Account {
     @Override
     public String toString() {
         return "Client{" +
-                "account=" + getAccount() +
                 ", name='" + name + '\'' +
-                 ", age='" + age + '\'' +
+                ", age='" + age + '\'' +
                 '}';
+
     }
 }
