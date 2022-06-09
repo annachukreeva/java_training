@@ -39,8 +39,17 @@ public class Bank {
         first.isPresent();
         Client client5 = first.get();
 
+HashMap<Client, Set<Account>> example = new HashMap<>();
+example.put(client1, client1.getAccounts());
+Client client6 = new Client("Name1", 25);
+        Set<Account> accounts = example.get(client6);
 
-        System.out.println(client5.getAccounts());
+        HashMap<Account, Client> example2 = new HashMap<>();
+        example2.put(account1, account1.getClient());
+        Account account6 = new Account(1);
+        example2.get(account1);
+
+        System.out.println(client1.getAccounts());
         System.out.println(account3.getClient());
     }
 }
