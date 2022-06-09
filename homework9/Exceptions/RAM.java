@@ -14,4 +14,7 @@ public class RAM {
     public void setSize(double size) {
         this.size = size;
     }
-}
+};
+
+
+

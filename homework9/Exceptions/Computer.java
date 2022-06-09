@@ -6,11 +6,13 @@ public class Computer {
     private Monitor monitor;
 
 
-    public Computer(String name, RAM ram, Monitor monitor)
-            {
+    public Computer(String name, RAM ram, Monitor monitor) {
         this.name = name;
         this.ram = ram;
         this.monitor = monitor;
+    }
+
+    public Computer() {
     }
 
     public String getName() {
@@ -30,17 +32,29 @@ public class Computer {
         this.name = name;
     }
 
-    public void setRam(RAM ram)throws RamException {
-        if (size()<0)
-            throw new RamException();
+
+    public void setRam(RAM ram) throws RamException {
+        if (ram.getSize() < 0)
+            throw new RamException("Incorrect size");
         this.ram = ram;
     }
+
 
     public void setMonitor(Monitor monitor) {
         this.monitor = monitor;
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
+        RAM ram = new RAM(-1);
+        Computer computer = new Computer();
+        try {
+            computer.setRam(ram);
+        } catch (RamException e) {
+            e.printStackTrace();
+        }
 
+        try (CD cd = new CD()) {
+
+        }
     }
 }
